@@ -14,15 +14,29 @@
 {% block content %}
 
 	<main id="content">
+		<div id="app">
+			{% set articles = craft.entries.section('news').all() %}
+			{% set posts = [] %}
+			{% for post in articles %}
+			{% set posts = posts|merge([{
+				url: post.url,
+				title: post.articleSubheader,
+				content: post.articleText,
+				image: post.articleImage.getUrl('thumb')
+			}]) %}
+			{% endfor %}
 
-		{% for entry in entries %}
-			<h1>{{ entry.title }}</h1>
-		{% else %}
-			<p>No entries found.</p>
-		{% endfor %}
+			<news-articles></news-articles>
+		</div>
 
-		{% include '_components/pagination' with { pageInfo: pageInfo } %}
+		{# {% include '_components/pagination' with { pageInfo: pageInfo } %} #}
 
 	</main>
+
+	<script>
+	window.craftData = {
+		posts: {{ posts | json_encode | raw }}
+	}
+	</script>
 
 {% endblock %}

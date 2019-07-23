@@ -1,4 +1,4 @@
-dateModified: 1557914204
+dateModified: 1563872813
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -10,6 +10,8 @@ fieldGroups:
     name: Common
   fb69239b-76a5-43f2-b59f-0adffcac83e7:
     name: SEO
+  d60c74b3-04c6-4e32-8ce2-614612b34eea:
+    name: News
 fields:
   9435729b-0cbb-4d4c-bc3d-1abd51e3892e:
     name: 'Alt text'
@@ -77,6 +79,70 @@ fields:
       columnType: text
     fieldGroup: fb69239b-76a5-43f2-b59f-0adffcac83e7
     contentColumnType: text
+  bd96c0ca-8d72-4136-832e-7d1462d886d4:
+    name: 'Article Subheader'
+    handle: articleSubheader
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: d60c74b3-04c6-4e32-8ce2-614612b34eea
+  b69ebb49-663d-483b-a30b-8241bb4ae1ae:
+    name: 'Article Image'
+    handle: articleImage
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:795e072f-98ce-4a14-ae63-4e3a4e5142ca'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:795e072f-98ce-4a14-ae63-4e3a4e5142ca'
+      singleUploadLocationSubpath: ''
+      restrictFiles: ''
+      allowedKinds: null
+      sources:
+        - 'volume:9e21bfc8-59c7-4a1e-9695-b710f984ea53'
+      source: null
+      targetSiteId: null
+      viewMode: list
+      limit: ''
+      selectionLabel: ''
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: d60c74b3-04c6-4e32-8ce2-614612b34eea
+  37bec3d3-6f7e-4d77-9b4d-907a7188e31e:
+    name: 'Article Text'
+    handle: articleText
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: ''
+      purifierConfig: ''
+      cleanupHtml: true
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: '*'
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: d60c74b3-04c6-4e32-8ce2-614612b34eea
 matrixBlockTypes:
   b8cc71a5-3887-4789-a31a-c9b7b7960631:
     name: Text
@@ -301,19 +367,75 @@ sections:
         titleLabel: null
         titleFormat: '{section.name|raw}'
         sortOrder: 1
+  baad16c6-feed-476f-9868-eae7b97d4b47:
+    name: News
+    handle: news
+    type: channel
+    enableVersioning: true
+    propagateEntries: true
+    siteSettings:
+      29077885-d696-4ee7-9a99-ea42e8f64311:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'news/{slug}'
+        template: news/_entry
+    entryTypes:
+      5f43c6df-51e8-422b-a41d-3b0b80d1bd2e:
+        name: News
+        handle: news
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          d4b4252a-3ebc-401b-b266-440e6e82d8da:
+            tabs:
+              -
+                name: News
+                sortOrder: 1
+                fields:
+                  b69ebb49-663d-483b-a30b-8241bb4ae1ae:
+                    required: false
+                    sortOrder: 1
+                  bd96c0ca-8d72-4136-832e-7d1462d886d4:
+                    required: false
+                    sortOrder: 2
+                  37bec3d3-6f7e-4d77-9b4d-907a7188e31e:
+                    required: false
+                    sortOrder: 3
+              -
+                name: Common
+                sortOrder: 2
+                fields:
+                  9435729b-0cbb-4d4c-bc3d-1abd51e3892e:
+                    required: false
+                    sortOrder: 1
+                  7867a02a-c8b9-4136-8ffe-fcece191ca3c:
+                    required: false
+                    sortOrder: 2
+              -
+                name: SEO
+                sortOrder: 3
+                fields:
+                  eabfed67-715e-4222-9e32-9bd51ac22471:
+                    required: false
+                    sortOrder: 1
+                  8cfd9379-c00e-49e6-88c5-e5394a3eaf7c:
+                    required: false
+                    sortOrder: 2
 siteGroups:
   e70939fb-8b55-4880-b361-6437b2756120:
     name: Craft
 sites:
   29077885-d696-4ee7-9a99-ea42e8f64311:
     siteGroup: e70939fb-8b55-4880-b361-6437b2756120
-    name: Craft
+    name: blogApp
     handle: default
     language: en-GB
-    hasUrls: '1'
+    hasUrls: true
     baseUrl: $DEFAULT_SITE_URL
-    sortOrder: '1'
-    primary: '1'
+    sortOrder: 1
+    primary: true
 system:
   edition: pro
   name: Craft
