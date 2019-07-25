@@ -1,3 +1,4 @@
+{% import "_includes/macros" as macros %}
 {% extends '_layouts/standard' %}
 
 {% paginate craft.entries({ section: 'news', limit: 8 }) as pageInfo, entries %}
@@ -22,11 +23,15 @@
 				url: post.url,
 				title: post.articleSubheader,
 				content: post.articleText,
-				image: post.articleImage.getUrl('thumb')
+				full: post.articleFull,
+				image: post.articleImage.one().getUrl({width: 350})
 			}]) %}
 			{% endfor %}
 
+			<router-view>
 			<news-articles></news-articles>
+			<news-item></news-item>
+			</router-view>
 		</div>
 
 		{# {% include '_components/pagination' with { pageInfo: pageInfo } %} #}

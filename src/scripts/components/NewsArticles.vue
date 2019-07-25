@@ -1,10 +1,11 @@
 <template>
-	<ul>
+	<ul class="c-container">
 		<li v-for="item in posts">
-			x
+			<router-link to="{ name: 'news', params: { id: 123 }}">
+			<img v-bind:src="item.image" alt="">
 			<h1>{{item.title}}</h1>
-			<img src="{{item.image}}" alt="">
-			<!--<p>{{post.content}}</p> -->
+			<p>{{item.content}}</p>
+			</router-link>
 		</li>
 	</ul>
 </template>
@@ -18,6 +19,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
+.c-container {
+	display: flex;
+	width: 90%;
+	flex-flow: row;
+	margin: 10rem auto;
+	justify-content: space-around;
+}
 </style>

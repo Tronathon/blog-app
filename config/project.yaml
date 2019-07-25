@@ -1,4 +1,4 @@
-dateModified: 1563872813
+dateModified: 1564070329
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -141,6 +141,23 @@ fields:
       columnType: text
       availableVolumes: '*'
       availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: d60c74b3-04c6-4e32-8ce2-614612b34eea
+  30f00a45-3b31-47a9-bbb6-b8fc08bab224:
+    name: 'Article Full'
+    handle: articleFull
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
     contentColumnType: text
     fieldGroup: d60c74b3-04c6-4e32-8ce2-614612b34eea
 matrixBlockTypes:
@@ -403,6 +420,9 @@ sections:
                   37bec3d3-6f7e-4d77-9b4d-907a7188e31e:
                     required: false
                     sortOrder: 3
+                  30f00a45-3b31-47a9-bbb6-b8fc08bab224:
+                    required: false
+                    sortOrder: 4
               -
                 name: Common
                 sortOrder: 2
