@@ -1,12 +1,14 @@
 <template>
 	<ul class="c-container">
-		<li v-for="item in posts">
-			<router-link to="{ name: 'news', params: { id: 123 }}">
+
+		<li v-for="item in posts" :key="item.id">
+			<router-link :to="{name: 'news-item', params: { id: item.id }}">
 			<img v-bind:src="item.image" alt="">
 			<h1>{{item.title}}</h1>
 			<p>{{item.content}}</p>
 			</router-link>
 		</li>
+
 	</ul>
 </template>
 
