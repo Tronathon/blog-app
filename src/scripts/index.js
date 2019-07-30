@@ -1,11 +1,11 @@
 import Vue from 'vue';
-import NewsArticles from './components/NewsArticles';
+import News from './components/News';
 import routes from './routes.js';
 
 Vue.config.productionTip = true;
 
 new Vue({
-	render: h => h(NewsArticles),
+	render: h => h(News),
 	router: routes,
 	delimiters: ['${', '}'],
 	data: window.craftData
