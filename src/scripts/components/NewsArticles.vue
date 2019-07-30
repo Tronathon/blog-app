@@ -1,11 +1,13 @@
 <template>
 	<ul class="c-container">
 		<li v-for="item in posts" :key="item.id">
-			<router-link :to="{name: 'news-item', params: { id: item.id }}">
-			<img v-bind:src="item.image" alt="">
-			<h1>{{item.title}}</h1>
-			<p>{{item.content}}</p>
-			</router-link>
+			<transition name="fade">
+				<router-link :to="{name: 'news-item', params: { id: item.id }}">
+				<img v-bind:src="item.image" alt="">
+				<h1>{{item.title}}</h1>
+				<p>{{item.content}}</p>
+				</router-link>
+			</transition>
 		</li>
 	</ul>
 </template>
@@ -20,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .c-container {
 	display: flex;
@@ -29,4 +31,5 @@ export default {
 	margin: 10rem auto;
 	justify-content: space-around;
 }
+
 </style>
