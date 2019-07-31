@@ -1,18 +1,19 @@
 <template>
 	<ul class="c-container">
 		<li v-for="item in posts" :key="item.id">
-			<transition name="fade">
-				<router-link :to="{name: 'news-item', params: { id: item.id }}">
-				<img v-bind:src="item.image" alt="">
-				<h1>{{item.title}}</h1>
-				<p>{{item.content}}</p>
-				</router-link>
-			</transition>
+			<router-link :to="{name: 'news-item', params: { id: item.id }}">
+				<article class="js-article">
+					<img v-bind:src="item.image" alt="">
+					<h1>{{item.title}}</h1>
+					<p>{{item.content}}</p>
+				</article>
+			</router-link>
 		</li>
 	</ul>
 </template>
 
 <script>
+import {TweenMax, TimelineLite} from "gsap/TweenMax";
 
 export default {
 	name: "news-articles",
