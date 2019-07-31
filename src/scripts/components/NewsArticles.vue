@@ -4,7 +4,7 @@
 			<router-link :to="{name: 'news-item', params: { id: item.id }}">
 				<article class="js-article">
 					<img v-bind:src="item.image" alt="">
-					<h1>{{item.title}}</h1>
+					<h1 class="js-hidden">{{item.title}}</h1>
 					<p>{{item.content}}</p>
 				</article>
 			</router-link>
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import {TweenMax, TimelineLite} from "gsap/TweenMax";
 
 export default {
 	name: "news-articles",

@@ -1,23 +1,32 @@
 <template>
 	<div>
-		<transition :css="false" @before-leave="beforeLeave">
+		<transition :css="false" @leave="onLeave" @enter="onEnter">
 		<router-view></router-view>
 		</transition>
 	</div>
 </template>
 
 <script>
-// import NewsItem from './NewsItem.vue';
+import {TweenMax, TimelineLite} from "gsap/TweenMax";
 
 export default {
 	name: 'news',
 	methods: {
-		beforeLeave () {
+		onLeave() {
 			let elements = Array.from(document.querySelectorAll('.js-article'));
 			let tl = new TimelineLite();
 			elements.forEach(element => {
-				tl.to(element, 1, {y: -500, ease: Bounce.easeOut, delay: 0.5})
+				tl.from(element, 1, {y: 0})
+				tl.to(element, 1, {y: -500, ease: Bounce.easeOut, delay: 0.2})
 			});
+
+		},
+		onEnter() {
+			const item = document.querySelector('.c-news-item');
+			let tl = new TimelineLite();
+			tl.from(item, 1, {y: -500})
+			tl.to(item, 1, {y: 0, ease: Sine.easeOut})
+
 		}
 	}
 }
