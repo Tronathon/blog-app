@@ -1,35 +1,34 @@
 <template>
-	<div>
-		<transition :css="false" @leave="onLeave" @enter="onEnter">
-		<router-view></router-view>
-		</transition>
-	</div>
+	<transition :css="false" @enter="enter" @leave="leave" mode="out-in">
+	<router-view></router-view>
+	</transition>
 </template>
 
 <script>
-import {TweenMax, TimelineLite} from "gsap/TweenMax";
 
 export default {
 	name: 'news',
 	methods: {
-		onLeave() {
-			let elements = Array.from(document.querySelectorAll('.js-article'));
+		enter(el, done) {
+			let item = document.querySelector('.js-news-item');
 			let tl = new TimelineLite();
-			elements.forEach(element => {
-				tl.from(element, 1, {y: 0})
-				tl.to(element, 1, {y: -500, ease: Bounce.easeOut, delay: 0.2})
-			});
-
+			if(item) {
+				tl.from(item, 1, {y: -500})
+				tl.to(item, 1, {y: 0, ease: Sine.easeOut, delay: 0.2, onComplete: done})
+			}
+			console.log('enter')
 		},
-		onEnter() {
-			const item = document.querySelector('.c-news-item');
-			let tl = new TimelineLite();
-			tl.from(item, 1, {y: -500})
-			tl.to(item, 1, {y: 0, ease: Sine.easeOut})
+		leave(el, done) {
+			let elements = Array.from(document.querySelectorAll('.js-news-item'));
 
+			if (elements) {
+				TweenMax.staggerTo(elements, 0.5, {y: -500, ease: Sine.easeOut, delay: 0.2, onComplete: done}, 0.2)
+			}
+			console.log('leave')
 		}
 	}
 }
+
 </script>
 
 <style>

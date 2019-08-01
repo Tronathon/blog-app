@@ -2,7 +2,7 @@
 	<ul class="c-container">
 		<li v-for="item in posts" :key="item.id">
 			<router-link :to="{name: 'news-item', params: { id: item.id }}">
-				<article class="js-article">
+				<article class="js-news-item">
 					<img v-bind:src="item.image" alt="">
 					<h1 class="js-hidden">{{item.title}}</h1>
 					<p>{{item.content}}</p>

@@ -1,20 +1,17 @@
 <template>
 	<ul>
 		<li v-for="item in posts" :key="item.id">
-
-		<div v-if="item.id == namedId" class="c-news-item">
-			<img v-bind:src="item.image" alt="">
-			<h1>{{item.title}}</h1>
-			<p>{{item.content}}</p>
-		</div>
-
+			<div v-if="item.id == namedId" class="c-news-item js-news-item">
+				<img v-bind:src="item.image" alt="">
+				<h1>{{item.title}}</h1>
+				<p>{{item.content}}</p>
+			</div>
 		</li>
 		<router-link :to="{name: 'news-articles'}">Back to news</router-link>
 	</ul>
 </template>
 
 <script>
-import {TweenMax, TimelineLite} from "gsap/TweenMax";
 
 export default {
 	name: "news-item",
@@ -25,17 +22,7 @@ export default {
 		namedId() {
 			return this.$route.params.id
 		}
-	},
-	methods: {
-		onEnter() {
-			const item = document.querySelector('.c-news-item');
-			let tl = new TimelineLite();
-			tl.from(item, 1, {y: -500})
-			tl.to(item, 1, {y: 0, ease: Sine.easeOut})
-
-		}
 	}
-
 }
 </script>
 
