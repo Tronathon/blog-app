@@ -5,7 +5,7 @@
 				<article class="js-news-item">
 					<img v-bind:src="item.image" alt="">
 					<h1 class="js-hidden">{{item.title}}</h1>
-					<p>{{item.content}}</p>
+					<p class="js-hidden">{{item.content}}</p>
 				</article>
 			</router-link>
 		</li>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 
 export default {
 	name: "news-articles",
