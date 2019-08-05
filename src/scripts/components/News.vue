@@ -46,7 +46,8 @@ export default {
 			}
 
 			if (text) {
-				TweenMax.to(text, 0.2, {opacity: 0})
+				TweenMax.from(text, 0.2, {x: 0})
+				TweenMax.to(text, 0.2, {x: -300, opacity: 0})
 			}
 		}
 	}
@@ -66,6 +67,7 @@ export default {
 	bottom: 0;
 	right: 0;
 	position: absolute;
+	font-family: 'Roboto', sans-serif;
 }
 
 .c-background {
@@ -75,7 +77,7 @@ export default {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: #ccc;
+	background-color: #FFE5E2;
 	z-index: -10;
 	position: absolute;
 }

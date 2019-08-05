@@ -4,7 +4,7 @@
 			<div v-if="item.id == namedId" class="c-news-item js-news-item">
 				<img v-bind:src="item.image" alt="">
 				<h1 class="js-hidden">{{item.title}}</h1>
-				<p class="js-hidden">{{item.content}}</p>
+				<p class="js-hidden">{{item.full}}</p>
 				<router-link class="js-hidden" :to="{name: 'news-articles'}">Back to news</router-link>
 			</div>
 		</li>
@@ -26,7 +26,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+ul {
+	padding-top: 200px;
+}
+
 .c-news-item {
 	width: 33%;
 	margin: 5% auto;
