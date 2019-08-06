@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 ul {
-	padding-top: 200px;
+	padding-top: 100px;
 }
 
 .c-news-item {

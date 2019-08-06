@@ -17,10 +17,9 @@ export default {
 			let skew = document.querySelector('.js-skew');
 			let text = Array.from(document.querySelectorAll('.js-hidden'));
 
-			if(elements) {
+			if (elements) {
 				TweenMax.staggerFromTo(elements, 1, {y: -500}, {y: 0, ease: Sine.easeOut, onComplete: done}, 0.2)
 			}
-			console.log('enter')
 
 			if (skew) {
 				TweenMax.to(skew, 0.8, {skewX:"0deg", skewY:"0deg", delay: 0.2, onComplete: done})
@@ -39,7 +38,6 @@ export default {
 			if (elements) {
 				TweenMax.staggerTo(elements, 1, {y: -500, ease: Sine.easeOut, onComplete: done}, 0.2)
 			}
-			console.log('leave')
 
 			if (skew) {
 				TweenMax.to(skew, 0.8, {skewX:"5deg", skewY:"5deg", transformOrigin:"right top", onComplete: done})
@@ -58,7 +56,7 @@ export default {
 <style>
 
 .c-body {
-	background-color: #000;
+	background-color: #ffa096;
 	z-index: -9;
 	width: 100%;
 	height: 100vh;
