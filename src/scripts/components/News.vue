@@ -34,6 +34,7 @@ export default {
 			let elements = Array.from(document.querySelectorAll('.js-news-item'));
 			let skew = document.querySelector('.js-skew');
 			let text = Array.from(document.querySelectorAll('.js-hidden'))
+			let input = document.querySelector('.js-input')
 
 			if (elements) {
 				TweenMax.staggerTo(elements, 1, {y: -500, ease: Sine.easeOut, onComplete: done}, 0.2)
@@ -45,7 +46,11 @@ export default {
 
 			if (text) {
 				TweenMax.from(text, 0.2, {x: 0})
-				TweenMax.to(text, 0.2, {x: -300, opacity: 0})
+				TweenMax.to(text, 0.2, {y: 300, opacity: 0})
+			}
+
+			if (input) {
+				TweenMax.to(input, 0.2, {opacity: 0, y: 300})
 			}
 		}
 	}
@@ -56,15 +61,12 @@ export default {
 <style>
 
 .c-body {
-	background-color: #ffa096;
 	z-index: -9;
 	width: 100%;
-	height: 100vh;
-	top: 0;
+	height: 100%;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	position: absolute;
 	font-family: 'Roboto', sans-serif;
 }
 
